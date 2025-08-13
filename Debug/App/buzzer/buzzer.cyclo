@@ -1,0 +1,4 @@
+../App/buzzer/buzzer.c:21:6:buzzer_op	4
+../App/buzzer/buzzer.c:37:6:pitches_to_period	3
+../App/buzzer/buzzer.c:64:6:buz_set_tone_hz	6
+../App/buzzer/buzzer.c:90:6:buz_beep_ms	4
