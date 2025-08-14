@@ -23,7 +23,8 @@ App/ap/ap_isr.o: ../App/ap/ap_isr.c ../App/ap/ap_isr.h ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- C:/Workspace/STM32WB50_HANGIL/STM32F103_Piezo/App/buzzer/buzzer.h
+ C:/Workspace/STM32WB50_HANGIL/STM32F103_Piezo/App/buzzer/buzzer.h \
+ C:/Workspace/STM32WB50_HANGIL/STM32F103_Piezo/App/buzzer/pitches.h
 ../App/ap/ap_isr.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
@@ -51,3 +52,4 @@ App/ap/ap_isr.o: ../App/ap/ap_isr.c ../App/ap/ap_isr.h ../Core/Inc/main.h \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
 C:/Workspace/STM32WB50_HANGIL/STM32F103_Piezo/App/buzzer/buzzer.h:
+C:/Workspace/STM32WB50_HANGIL/STM32F103_Piezo/App/buzzer/pitches.h:

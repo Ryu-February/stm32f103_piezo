@@ -37,7 +37,7 @@ void buzzer_op(buzzer_t op)
 void pitches_to_period(uint16_t tone_hz)
 {
     // TIM3 업데이트 인터럽트 비활성화
-    TIM3->DIER &= ~TIM_DIER_UIE;
+//    TIM3->DIER &= ~TIM_DIER_UIE;
 
     // PSC=71 → 1 MHz 타이머 tick → ARR = (1e6 / f) - 1
     uint32_t arr = (1000000UL + (tone_hz / 2)) / tone_hz; // 반올림
@@ -47,18 +47,18 @@ void pitches_to_period(uint16_t tone_hz)
 
     // ARR 갱신
     TIM3->ARR = (uint16_t)arr;
-    TIM3->CNT = 0;
+//    TIM3->CNT = 0;
 
     // 듀티 50%로 맞추려면 CCR1도 같이 갱신
-    TIM3->CCR1 = (uint16_t)((arr + 1) / 2);
+//    TIM3->CCR1 = (uint16_t)((arr + 1) / 2);
 
     // 즉시 적용
-    TIM3->EGR |= TIM_EGR_UG;
+//    TIM3->EGR |= TIM_EGR_UG;
 
     // TIM3 업데이트 인터럽트 재활성화
-    TIM3->DIER |= TIM_DIER_UIE;
+//    TIM3->DIER |= TIM_DIER_UIE;
 
-	buzzer_start = true;
+//	buzzer_start = true;
 }
 
 void buz_set_tone_hz(uint32_t tone_hz)

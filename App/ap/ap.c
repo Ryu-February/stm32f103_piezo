@@ -12,6 +12,9 @@ extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim4;
+extern volatile bool buzzer_start;
+
+extern volatile uint32_t buz_ms;
 
 void ap_init(void)
 {
@@ -34,8 +37,10 @@ void ap_main(void)
 
 		if(!buzzer_busy)
 		{
-			pitches_to_period(B_5);
+//			pitches_to_period(B_5);
+			buzzer_start = true;
 			buzzer_busy = true;
+
 		}
 
 //		if(!buzzer_busy)

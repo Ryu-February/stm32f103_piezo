@@ -8,6 +8,7 @@
 
 #include "ap_isr.h"
 #include "buzzer.h"
+#include "pitches.h"
 
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
@@ -16,6 +17,8 @@ extern TIM_HandleTypeDef htim3;
 extern volatile uint32_t buz_cycles_left;  // 남은 주기 수
 
 extern volatile bool buzzer_start;
+
+volatile uint32_t buz_ms = 0;
 
 /*1ms irq handler*/
 void ap_tim1_callback(void)
@@ -30,14 +33,16 @@ void ap_tim1_callback(void)
 
 	if(buzzer_start)
 	{
-		static uint32_t buz_ms = 0;
+
 		buz_ms++;
 
-		if(buz_ms > 500)
-		{
-			buz_ms = 0;
-			buzzer_start = false;
-		}
+//		if(buz_ms > 8000)
+//		{
+//			buz_ms = 0;
+//			buzzer_start = false;
+//		}
+
+
 	}
 }
 
@@ -81,7 +86,81 @@ void ap_tim3_callback(void)
 //	}
 	if(buzzer_start)
 	{
-		buzzer_op(BUZZER_TOGGLE);
+		if(buz_ms < 8000)
+		{
+			buzzer_op(BUZZER_TOGGLE);
+		}
+		else
+		{
+			buzzer_op(BUZZER_OFF);
+			buzzer_start = false;
+		}
+
+
+		if(buz_ms < 500)
+		{
+			pitches_to_period(B_4);
+		}
+		else if(buz_ms < 1000 && buz_ms >= 500)
+		{
+			pitches_to_period(FS_5);
+		}
+		else if(buz_ms < 1500 && buz_ms >= 1000)
+		{
+			pitches_to_period(B_5);
+		}
+		else if(buz_ms < 2000 && buz_ms >= 1500)
+		{
+			pitches_to_period(FS_5);
+		}
+		else if(buz_ms < 2500 && buz_ms >= 2000)
+		{
+			pitches_to_period(G_4);
+		}
+		else if(buz_ms < 3000 && buz_ms >= 2500)
+		{
+			pitches_to_period(D_5);
+		}
+		else if(buz_ms < 3500 && buz_ms >= 3000)
+		{
+			pitches_to_period(G_5);
+		}
+		else if(buz_ms < 4000 && buz_ms >= 3500)
+		{
+			pitches_to_period(D_5);
+		}
+		else if(buz_ms < 4500 && buz_ms >= 4000)
+		{
+			pitches_to_period(A_4);
+		}
+		else if(buz_ms < 5000 && buz_ms >= 4500)
+		{
+			pitches_to_period(E_5);
+		}
+		else if(buz_ms < 5500 && buz_ms >= 5000)
+		{
+			pitches_to_period(A_5);
+		}
+		else if(buz_ms < 6000 && buz_ms >= 5500)
+		{
+			pitches_to_period(E_5);
+		}
+		else if(buz_ms < 6500 && buz_ms >= 6000)
+		{
+			pitches_to_period(D_5);
+		}
+		else if(buz_ms < 7000 && buz_ms >= 6500)
+		{
+		  pitches_to_period(A_5);
+		}
+		else if(buz_ms < 7500 && buz_ms >= 7000)
+		{
+			pitches_to_period(D_6);
+		}
+		else if(buz_ms < 8000 && buz_ms >= 7500)
+		{
+			pitches_to_period(A_5);
+		}
 	}
 }
 
