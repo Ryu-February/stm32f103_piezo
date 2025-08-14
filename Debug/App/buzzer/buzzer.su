@@ -1,4 +1,4 @@
 ../App/buzzer/buzzer.c:21:6:buzzer_op	16	static
-../App/buzzer/buzzer.c:37:6:pitches_to_period	24	static
-../App/buzzer/buzzer.c:64:6:buz_set_tone_hz	24	static
-../App/buzzer/buzzer.c:90:6:buz_beep_ms	80	static
+../App/buzzer/buzzer.c:38:6:pitches_to_period	24	static
+../App/buzzer/buzzer.c:65:6:buz_set_tone_hz	24	static
+../App/buzzer/buzzer.c:91:6:buz_beep_ms	80	static

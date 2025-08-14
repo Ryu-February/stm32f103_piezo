@@ -31,6 +31,7 @@ void buzzer_op(buzzer_t op)
 	else if(op == BUZZER_TOGGLE)
 	{
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+//		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_15);
 	}
 }
 
